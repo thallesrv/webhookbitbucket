@@ -29,4 +29,4 @@ app.post('/', jsonParser, function (req, res) {
 });
 
 app.listen(process.env.PORT || 4000);
-serverHttp.listen('5000');
+serverHttp.listen(process.env.PORT || 4000);
