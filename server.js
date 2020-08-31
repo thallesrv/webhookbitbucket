@@ -1,12 +1,8 @@
 const express = require('express');
 const app = express();
-const io = require('socket.io');
 const ServerHttp = require('http');
 var bodyParser = require('body-parser')
-
-const serverHttp = ServerHttp.createServer(app);
-const ioSocket = io(serverHttp);
-
+const ioSocket = require('socket.io')(app.listen(process.env.PORT || 3000));
 
   // create application/json parser
 var jsonParser = bodyParser.json()
@@ -28,4 +24,4 @@ app.post('/', jsonParser, function (req, res) {
     res.send(commit);
 });
 
-app.listen(process.env.PORT || 4000);
+//serverHttp.listen('4000');
